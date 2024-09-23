@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>brinquedos de calopsita</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFB6C1; /* Rosa claro */
+        }
+        header {
+            background-color: white; /* Alterado para branco */
+            color: black; /* Cor do texto alterada para preto */
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        h1 {
+            font-family: 'Cursive'; /* Fonte cursiva para o título */
+        }
+        .rights {
+            font-size: 10px; /* Tamanho pequeno */
+            position: absolute; /* Para posicionar no canto */
+            right: 20px; /* Distância do lado direito */
+            top: 10px; /* Distância do topo */
+        }
+        .search-container {
+            margin: 20px auto;
+            text-align: center;
+        }
+        .search-container input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .search-container input[type="submit"] {
+            padding: 10px;
+            background-color: #FF1493; /* Rosa escuro */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .produtos {
+            display: flex;
+            overflow-x: auto; /* Permite rolar horizontalmente */
+            margin-top: 20px;
+            padding: 10px 0;
+        }
+        .produto {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            min-width: 150px; /* Tamanho do quadrado */
+        }
+        .produto img {
+            width: 150px; /* Tamanho fixo desejado */
+            height: auto; /* Mantém a proporção da imagem */
+            border-radius: 10px;
+        }
+        footer {
+            background-color: white; /* Alterado para branco */
+            color: black; /* Cor do texto alterada para preto */
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>brinquedos de calopsita</h1>
+    <p class="rights">Todos os direitos reservados. </p>
+</header>
+
+<div class="search-container">
+    <input type="text" id="search-input" placeholder="Pesquisar..." onkeyup="searchProducts()">
+</div>
+
+<div class="produtos" id="product-list">
+    <div class="produto">
+        <a href="tutorial.html?produto=brinquedo">
+            <img src="imagens/brinquedo.jpg" alt="Brinquedo Colorido">
+            <h3>Brinquedo</h3>
+        </a>
+    </div>
+    <div class="produto">
+        <a href="tutorial.html?produto=racao">
+            <img src="imagens/racao.jpg" alt="Ração Caseira">
+            <h3>Ração</h3>
+        </a>
+    </div>
+    <div class="produto">
+        <a href="tutorial.html?produto=gaiola">
+            <img src="imagens/gaiola.jpg" alt="Gaiola">
+            <h3>Gaiola</h3>
+        </a>
+    </div>
+    <div class="produto">
+        <a href="tutorial.html?produto=brinquedo_corda">
+            <img src="imagens/brinquedo_corda.jpg" alt="Brinquedo de Corda">
+            <h3>Brinquedo de Corda</h3>
+        </a>
+    </div>
+    <div class="produto">
+        <a href="tutorial.html?produto=brinquedo_papel">
+            <img src="imagens/brinquedo_papel.jpg" alt="Brinquedo de Papel">
+            <h3>Brinquedo de Papel</h3>
+        </a>
+    </div>
+    <div class="produto">
+        <a href="tutorial.html?produto=brinquedo_madeira">
+            <img src="imagens/brinquedo_madeira.jpg" alt="Brinquedo de Madeira">
+            <h3>Brinquedo de Madeira</h3>
+        </a>
+    </div>
+    <div class="produto">
+        <a href="tutorial.html?produto=brinquedo_bola">
+            <img src="imagens/brinquedo_bola.jpg" alt="Brinquedo Bola">
+            <h3>Brinquedo Bola</h3>
+        </a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; </p>
+</footer>
+
+<script>
+    function searchProducts() {
+        const input = document.getElementById('search-input').value.toLowerCase();
+        const productList = document.getElementById('product-list');
+        const products = productList.getElementsByClassName('produto');
+
+        for (let i = 0; i < products.length; i++) {
+            const productName = products[i].getElementsByTagName('h3')[0].textContent.toLowerCase();
+            if (productName.includes(input)) {
+                products[i].style.display = '';
+            } else {
+                products[i].style.display = 'none';
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

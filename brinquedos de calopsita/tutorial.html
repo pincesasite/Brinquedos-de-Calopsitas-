@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Fazer - brinquedos de calopsita</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #FF69B4; /* Rosa */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            display: flex; /* Flexbox para layout lado a lado */
+            align-items: center;
+        }
+        .texto {
+            margin-left: 20px; /* Espaçamento entre imagem e texto */
+        }
+        img {
+            width: 300px; /* Defina o tamanho fixo desejado */
+            height: auto; /* Mantém a proporção da imagem */
+        }
+        footer {
+            background-color: #FF69B4; /* Rosa */
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Como Fazer</h1>
+</header>
+
+<div class="container">
+    <img id="imagem-produto" src="" alt="Produto" style="display: none;">
+    <div class="texto">
+        <h2 id="titulo">Instruções de Criação</h2>
+        <p id="descricao"></p>
+        <h3>Materiais Necessários:</h3>
+        <p id="materiais"></p>
+        <h3>Como Fazer:</h3>
+        <p id="instrucoes"></p>
+        <a href="index.html">Voltar para a página inicial</a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; </p>
+</footer>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const produto = params.get('produto');
+
+    const produtos = {
+        'brinquedo': {
+            descricao: 'Aprenda a fazer um brinquedo colorido para sua calopsita usando materiais simples e seguros.',
+            imagem: 'imagens/brinquedo.jpg',
+            materiais: 'Papel colorido, corda, tesoura.',
+            instrucoes: '1. Corte pedaços de papel colorido. 2. Junte e amarre com uma corda. 3. Pendure na gaiola.'
+        },
+        'racao': {
+            descricao: 'Descubra como preparar uma ração caseira saudável e deliciosa para sua calopsita.',
+            imagem: 'imagens/racao.jpg',
+            materiais: 'Sementes variadas, frutas, vegetais.',
+            instrucoes: 'Misture sementes, frutas e vegetais em pedaços pequenos. Armazene em um recipiente fechado.'
+        },
+        'gaiola': {
+            descricao: 'Saiba como montar uma gaiola confortável e segura para sua calopsita.',
+            imagem: 'imagens/gaiola.jpg',
+            materiais: 'Gaiola, poleiros, brinquedos.',
+            instrucoes: 'Escolha um local bem ventilado, adicione poleiros e brinquedos, e certifique-se de que as grades sejam seguras.'
+        },
+        'brinquedo_corda': {
+            descricao: 'Instruções para criar um brinquedo de corda divertido e seguro.',
+            imagem: 'imagens/brinquedo_corda.jpg',
+            materiais: 'Corda, tesoura.',
+            instrucoes: 'Corte cordas de diferentes comprimentos e amarre em um ponto central. Pendure na gaiola.'
+        },
+        'brinquedo_papel': {
+            descricao: 'Faça um brinquedo de papel reciclado para estimular a curiosidade da sua calopsita.',
+            imagem: 'imagens/brinquedo_papel.jpg',
+            materiais: 'Papel reciclado, corda.',
+            instrucoes: 'Corte o papel em tiras e amarre em um brinquedo de madeira.'
+        },
+        'brinquedo_madeira': {
+            descricao: 'Aprenda a fazer um brinquedo de madeira que sua calopsita vai adorar.',
+            imagem: 'imagens/brinquedo_madeira.jpg',
+            materiais: 'Pedaços de madeira não tratada, furadeira.',
+            instrucoes: 'Use pedaços de madeira não tratada e fure buracos para pendurar na gaiola.'
+        },
+        'brinquedo_bola': {
+            descricao: 'Aprenda a fazer um brinquedo bola divertido para sua calopsita.',
+            imagem: 'imagens/brinquedo_bola.jpg', // Adicione a imagem correta
+            materiais: 'Bola pequena de plástico ou papel, corda, fita adesiva.',
+            instrucoes: '1. Pegue uma bola de plástico ou faça uma de papel. 2. Envolva com fita adesiva. 3. Prenda uma corda na bola para pendurar na gaiola.'
+        }
+    };
+
+    if (produto && produtos[produto]) {
+        document.getElementById('titulo').innerText = produto.charAt(0).toUpperCase() + produto.slice(1); // Nome do produto
+        document.getElementById('descricao').innerText = produtos[produto].descricao;
+        document.getElementById('materiais').innerText = produtos[produto].materiais;
+        document.getElementById('instrucoes').innerText = produtos[produto].instrucoes;
+        const img = document.getElementById('imagem-produto');
+        img.src = produtos[produto].imagem;
+        img.style.display = 'block'; // Mostra a imagem
+    } else {
+        document.getElementById('descricao').innerText = 'Produto não encontrado.';
+    }
+</script>
+
+</body>
+</html>
